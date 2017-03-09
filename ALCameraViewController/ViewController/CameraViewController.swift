@@ -485,16 +485,17 @@ public class CameraViewController: UIViewController {
     }
     
     internal func saveImage(image: UIImage) {
-        _ = SingleImageSaver()
-            .setImage(image)
-            .onSuccess { asset in
-                self.layoutCameraResult(asset: asset)
-            }
-            .onFailure { error in
-                self.toggleButtons(enabled: true)
-                self.showNoPermissionsView(library: true)
-            }
-            .save()
+        self.layoutCameraResult(image: image)
+//        _ = SingleImageSaver()
+//            .setImage(image)
+//            .onSuccess { asset in
+//                self.layoutCameraResult(asset: asset)
+//            }
+//            .onFailure { error in
+//                self.toggleButtons(enabled: true)
+//                self.showNoPermissionsView(library: true)
+//            }
+//            .save()
     }
     
     internal func close() {
@@ -539,16 +540,17 @@ public class CameraViewController: UIViewController {
         flashButton.isHidden = cameraView.currentPosition == AVCaptureDevicePosition.front
     }
     
-    internal func layoutCameraResult(asset: PHAsset) {
+    internal func layoutCameraResult(image: UIImage) {
+        startConfirmController(image: image)
         cameraView.stopSession()
-        startConfirmController(asset: asset)
         toggleButtons(enabled: true)
+
     }
     
-    private func startConfirmController(asset: PHAsset) {
-        let confirmViewController = ConfirmViewController(asset: asset, allowsCropping: allowCropping)
+    private func startConfirmController(image: UIImage) {
+        let confirmViewController = ConfirmViewController(image: image, allowsCropping: allowCropping)
         confirmViewController.onComplete = { image, asset in
-            if let image = image, let asset = asset {
+            if let image = image {
                 self.onCompletion?(image, asset)
             } else {
                 self.dismiss(animated: true, completion: nil)

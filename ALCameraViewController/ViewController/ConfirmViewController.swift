@@ -25,10 +25,17 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
     public var onComplete: CameraViewCompletion?
     
     var asset: PHAsset!
+    var image: UIImage!
     
     public init(asset: PHAsset, allowsCropping: Bool) {
         self.allowsCropping = allowsCropping
         self.asset = asset
+        super.init(nibName: "ConfirmViewController", bundle: CameraGlobals.shared.bundle)
+    }
+    
+    public init(image: UIImage, allowsCropping: Bool) {
+        self.allowsCropping = allowsCropping
+        self.image = image
         super.init(nibName: "ConfirmViewController", bundle: CameraGlobals.shared.bundle)
     }
     
@@ -55,26 +62,36 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
         
         cropOverlay.isHidden = true
         
-        guard let asset = asset else {
-            return
-        }
+//        guard let asset = asset else {
+//            return
+//        }
         
         let spinner = showSpinner()
         
         disable()
 
-        _ = SingleImageFetcher()
-            .setAsset(asset)
-            .setTargetSize(largestPhotoSize())
-            .onSuccess { image in
-                self.configureWithImage(image)
-                self.hideSpinner(spinner)
-                self.enable()
-            }
-            .onFailure { error in
-                self.hideSpinner(spinner)
-            }
-            .fetch()
+        if let image = image {
+            self.configureWithImage(image)
+            self.hideSpinner(spinner)
+            self.enable()
+        }
+        else if let asset = asset {
+            _ = SingleImageFetcher()
+                .setAsset(asset)
+                .setTargetSize(largestPhotoSize())
+                .onSuccess { image in
+                    self.image = image
+                    self.configureWithImage(image)
+                    self.hideSpinner(spinner)
+                    self.enable()
+                }
+                .onFailure { error in
+                    self.hideSpinner(spinner)
+                }
+                .fetch()
+        }
+        
+        
     }
     
     public override func viewWillLayoutSubviews() {
@@ -213,37 +230,17 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
         imageView.isHidden = true
         
         let spinner = showSpinner()
-
-        var fetcher = SingleImageFetcher()
-            .onSuccess { image in
-                self.onComplete?(image, self.asset)
-                self.hideSpinner(spinner)
-                self.enable()
-           }
-            .onFailure { error in            
-                self.hideSpinner(spinner)
-                self.showNoImageScreen(error)
-            }
-            .setAsset(asset)
         
-        if allowsCropping {
-            
-            var cropRect = cropOverlay.frame
-            cropRect.origin.x += scrollView.contentOffset.x
-            cropRect.origin.y += scrollView.contentOffset.y
-            
-            let normalizedX = cropRect.origin.x / imageView.frame.width
-            let normalizedY = cropRect.origin.y / imageView.frame.height
-            
-            let normalizedWidth = cropRect.width / imageView.frame.width
-            let normalizedHeight = cropRect.height / imageView.frame.height
-            
-            let rect = normalizedRect(CGRect(x: normalizedX, y: normalizedY, width: normalizedWidth, height: normalizedHeight), orientation: imageView.image!.imageOrientation)
-            
-            fetcher = fetcher.setCropRect(rect)
+        self.onComplete?(image, self.asset)
+        self.hideSpinner(spinner)
+        self.enable()
+        
+        if asset == nil {
+            _ = SingleImageSaver()
+                .setImage(image)
+                .save()
         }
-        
-        fetcher = fetcher.fetch()
+
     }
     
     public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
