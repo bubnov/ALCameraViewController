@@ -584,6 +584,7 @@ open class CameraViewController: UIViewController {
         confirmViewController.onComplete = { [weak self] image, asset in
             if let image = image {
                 self?.onCompletion?(image, asset)
+                self?.onCompletion = nil
             } else {
                 self?.dismiss(animated: true, completion: nil)
     /*
@@ -599,8 +600,8 @@ open class CameraViewController: UIViewController {
     */
             }
 
-            self?.onCompletion?(image, asset)
-            self?.onCompletion = nil
+//            self?.onCompletion?(image, asset)
+//            self?.onCompletion = nil
         }
         confirmViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         present(confirmViewController, animated: true, completion: nil)
