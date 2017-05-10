@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,6 +28,13 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUR-U3-uEM">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </scrollView>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4M-ih-9eH">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="9k5-b9-hVc"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASf-ZD-cIs">
                     <rect key="frame" x="248" y="524" width="64" height="44"/>
                     <constraints>
@@ -71,14 +79,17 @@
                 <constraint firstAttribute="bottom" secondItem="ASf-ZD-cIs" secondAttribute="bottom" id="DZ5-WA-3ZQ"/>
                 <constraint firstItem="lnA-tb-Sap" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oUR-U3-uEM" secondAttribute="top" constant="100" id="GAL-ck-d0B"/>
                 <constraint firstAttribute="bottom" secondItem="yRi-ES-LfN" secondAttribute="bottom" constant="60" id="H4a-3r-r5r"/>
+                <constraint firstItem="T4M-ih-9eH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HaZ-MG-D8O"/>
                 <constraint firstItem="oUR-U3-uEM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="J3N-Vr-euu"/>
                 <constraint firstAttribute="trailing" secondItem="KYd-D9-K5d" secondAttribute="trailing" id="JLk-PT-5kn"/>
                 <constraint firstItem="yRi-ES-LfN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="LLg-hM-bEF"/>
+                <constraint firstAttribute="trailing" secondItem="T4M-ih-9eH" secondAttribute="trailing" id="MIe-kR-0qD"/>
                 <constraint firstItem="lnA-tb-Sap" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="P5N-Xh-C1z"/>
                 <constraint firstItem="ASf-ZD-cIs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="Rwi-4K-QRb"/>
                 <constraint firstItem="ASf-ZD-cIs" firstAttribute="bottom" secondItem="yRi-ES-LfN" secondAttribute="top" constant="-60" id="TLl-L0-yLb"/>
                 <constraint firstAttribute="trailing" secondItem="KYd-D9-K5d" secondAttribute="trailing" id="YBv-2a-KdQ"/>
                 <constraint firstItem="KYd-D9-K5d" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yhb-Y3-ngX"/>
+                <constraint firstAttribute="bottom" secondItem="T4M-ih-9eH" secondAttribute="bottom" id="ZNc-Nf-H8h"/>
                 <constraint firstItem="KYd-D9-K5d" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aj9-Xh-WHL"/>
                 <constraint firstItem="lnA-tb-Sap" firstAttribute="leading" secondItem="oUR-U3-uEM" secondAttribute="leading" priority="999" constant="100" id="bRR-fN-fEb"/>
                 <constraint firstItem="lnA-tb-Sap" firstAttribute="centerY" secondItem="KYd-D9-K5d" secondAttribute="centerY" id="dbm-T2-OgB"/>
@@ -128,18 +139,18 @@
                     <exclude reference="fPc-8D-E0O"/>
                     <exclude reference="hpa-Qn-uzT"/>
                     <exclude reference="ohf-4f-yKs"/>
-                    <exclude reference="89L-rE-rmd"/>
-                    <exclude reference="DZ5-WA-3ZQ"/>
-                    <exclude reference="Rwi-4K-QRb"/>
-                    <exclude reference="TLl-L0-yLb"/>
-                    <exclude reference="iar-0y-gBe"/>
-                    <exclude reference="pNU-uB-Igt"/>
                     <exclude reference="7jo-lC-34t"/>
                     <exclude reference="Ck2-xk-HbG"/>
                     <exclude reference="H4a-3r-r5r"/>
                     <exclude reference="v0q-tU-ywG"/>
                     <exclude reference="xFS-1L-oa4"/>
                     <exclude reference="xFc-F1-V7I"/>
+                    <exclude reference="89L-rE-rmd"/>
+                    <exclude reference="DZ5-WA-3ZQ"/>
+                    <exclude reference="Rwi-4K-QRb"/>
+                    <exclude reference="TLl-L0-yLb"/>
+                    <exclude reference="iar-0y-gBe"/>
+                    <exclude reference="pNU-uB-Igt"/>
                 </mask>
             </variation>
             <variation key="heightClass=compact">
@@ -155,10 +166,10 @@
                     <include reference="P5N-Xh-C1z"/>
                     <include reference="eMF-sY-QhQ"/>
                     <include reference="hpa-Qn-uzT"/>
+                    <include reference="v0q-tU-ywG"/>
                     <include reference="Rwi-4K-QRb"/>
                     <include reference="TLl-L0-yLb"/>
                     <include reference="pNU-uB-Igt"/>
-                    <include reference="v0q-tU-ywG"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -173,9 +184,9 @@
                     <include reference="1uu-Bd-bz3"/>
                     <include reference="efC-ff-52c"/>
                     <include reference="ohf-4f-yKs"/>
-                    <include reference="DZ5-WA-3ZQ"/>
                     <include reference="7jo-lC-34t"/>
                     <include reference="Ck2-xk-HbG"/>
+                    <include reference="DZ5-WA-3ZQ"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=regular">
@@ -191,11 +202,11 @@
                     <include reference="bRR-fN-fEb"/>
                     <include reference="dbm-T2-OgB"/>
                     <include reference="fPc-8D-E0O"/>
-                    <include reference="89L-rE-rmd"/>
-                    <include reference="iar-0y-gBe"/>
                     <include reference="H4a-3r-r5r"/>
                     <include reference="xFS-1L-oa4"/>
                     <include reference="xFc-F1-V7I"/>
+                    <include reference="89L-rE-rmd"/>
+                    <include reference="iar-0y-gBe"/>
                 </mask>
             </variation>
         </view>
