@@ -581,11 +581,11 @@ open class CameraViewController: UIViewController {
     
     private func startConfirmController(image: UIImage) {
         let confirmViewController = ConfirmViewController(image: image, allowsCropping: allowCropping)
-        confirmViewController.onComplete = { image, asset in
+        confirmViewController.onComplete = { [weak self] image, asset in
             if let image = image {
-                self.onCompletion?(image, asset)
+                self?.onCompletion?(image, asset)
             } else {
-                self.dismiss(animated: true, completion: nil)
+                self?.dismiss(animated: true, completion: nil)
     /*
     private func startConfirmController(asset: PHAsset) {
         let confirmViewController = ConfirmViewController(asset: asset, allowsCropping: allowCropping)
