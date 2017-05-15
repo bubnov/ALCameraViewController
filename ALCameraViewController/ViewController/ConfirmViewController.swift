@@ -247,21 +247,19 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
         imageView.isHidden = true
         
         let spinner = showSpinner()
-        /*
-        var fetcher = SingleImageFetcher()
-            .onSuccess { [weak self] image in
-                self?.onComplete?(image, self?.asset)
-                self?.hideSpinner(spinner)
-                self?.enable()
-           }
-            .onFailure { [weak self] error in
-                self?.hideSpinner(spinner)
-                self?.showNoImageScreen(error)
-            }
-            .setAsset(asset)
->>>>>>> 52d29ada68fd758c19219bb9a0b650892dcc2b5a
-         */
-        
+
+        if allowsCropping {
+            var cropRect = cropOverlay.frame
+            cropRect.origin.x += scrollView.contentOffset.x
+            cropRect.origin.y += scrollView.contentOffset.y
+            cropRect.origin.x /= scrollView.zoomScale
+            cropRect.origin.y /= scrollView.zoomScale
+            cropRect.size.width /= scrollView.zoomScale
+            cropRect.size.height /= scrollView.zoomScale
+
+            image = image.cropping(to: cropRect)
+        }
+
         self.onComplete?(image, self.asset)
         self.hideSpinner(spinner)
         self.enable()
@@ -315,4 +313,38 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
         permissionsView.configureInView(view, title: error.localizedDescription, description: desc, completion: { [weak self] in self?.cancel() })
     }
     
+}
+
+extension UIImage {
+    func cropping(to rect: CGRect) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, self.scale)
+        
+        self.draw(in: CGRect(x: -rect.origin.x, y: -rect.origin.y, width: self.size.width, height: self.size.height))
+        
+        let croppedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return croppedImage
+    }
+
+    func normalizedImage() -> UIImage {
+        guard self.imageOrientation != .up else { return self}
+        
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale);
+        draw(in: CGRect(origin: .zero, size: self.size))
+        let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return normalizedImage!
+    }
+    
+//    - (UIImage *)normalizedImage {
+//    if (self.imageOrientation == UIImageOrientationUp) return self;
+//    
+//    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+//    [self drawInRect:(CGRect){0, 0, self.size}];
+//    UIImage *normalizedImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    return normalizedImage;
+//    }
+
 }

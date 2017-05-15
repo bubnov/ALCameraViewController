@@ -26,7 +26,9 @@ public class CameraView: UIView {
     public func startSession() {
         session = AVCaptureSession()
         session.sessionPreset = AVCaptureSessionPresetPhoto
-
+//        session.usesApplicationAudioSession = false
+//        session.automaticallyConfiguresApplicationAudioSession = false
+        
         device = cameraWithPosition(position: currentPosition)
         if let device = device , device.hasFlash {
             do {
@@ -49,7 +51,7 @@ public class CameraView: UIView {
         if session.canAddInput(input) {
             session.addInput(input)
         }
-
+        
         imageOutput = AVCaptureStillImageOutput()
         imageOutput.outputSettings = outputSettings
 
