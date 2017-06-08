@@ -17,5 +17,5 @@
 "error.cant-fetch-photo" = "Unable to fetch image";
 "error.cant-fetch-photo.description" = "Please check your network settings";
 
-"Retake" = "Retake";
-"Send" = "Send";
+"confirm.retakeButton.title" = "استرجاع الصورة";
+"confirm.sendButton.title" = "إرسال";

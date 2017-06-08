@@ -60,8 +60,8 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         scrollView.maximumZoomScale = 1
         
-        cancelButton.setTitle(localizedString("Retake"), for: .normal)
-        confirmButton.setTitle(localizedString("Send"), for: .normal)
+        cancelButton.setTitle(localizedString("confirm.retakeButton.title"), for: .normal)
+        confirmButton.setTitle(localizedString("confirm.sendButton.title"), for: .normal)
         
         cropOverlay.isHidden = true
         

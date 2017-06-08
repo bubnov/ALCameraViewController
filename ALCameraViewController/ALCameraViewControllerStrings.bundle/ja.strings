@@ -17,5 +17,5 @@
 "error.cant-fetch-photo" = "Unable to fetch image";
 "error.cant-fetch-photo.description" = "Please check your network settings";
 
-"Retake" = "撮影し直す";
-"Send" = "送信";
+"confirm.retakeButton.title" = "撮影し直す";
+"confirm.sendButton.title" = "送信";

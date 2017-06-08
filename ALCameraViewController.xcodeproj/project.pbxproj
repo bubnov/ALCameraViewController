@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0812E851EE986C00020315F /* CameraView.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0812E881EE986C00020315F /* CameraView.strings */; };
-		B0812E861EE986C00020315F /* CameraView.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0812E881EE986C00020315F /* CameraView.strings */; };
+		B0812E901EE9977E0020315F /* ALCameraViewControllerStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0812E8D1EE9947C0020315F /* ALCameraViewControllerStrings.bundle */; };
+		B0812E911EE99D730020315F /* ALCameraViewControllerStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0812E8D1EE9947C0020315F /* ALCameraViewControllerStrings.bundle */; };
+		B0812E931EE99F690020315F /* ConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0812E921EE99F690020315F /* ConfirmViewController.xib */; };
 		C40665441C73A47C00EB9751 /* SingleImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40665431C73A47C00EB9751 /* SingleImageSaver.swift */; };
 		C40665461C73A94100EB9751 /* CameraGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40665451C73A94100EB9751 /* CameraGlobals.swift */; };
 		C40665481C73B72D00EB9751 /* SingleImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40665471C73B72D00EB9751 /* SingleImageFetcher.swift */; };
 		C44543211CA68DDE00644380 /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44543201CA68DDE00644380 /* VolumeControl.swift */; };
-		C4768C001CAF2EA100A084F8 /* ConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4768BFF1CAF2EA100A084F8 /* ConfirmViewController.xib */; };
-		C4768C011CAF2EAA00A084F8 /* ConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4768BFF1CAF2EA100A084F8 /* ConfirmViewController.xib */; };
 		C4829FFE1CAEB16C00541D08 /* CameraViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C4829FFD1CAEB16C00541D08 /* CameraViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C482A0031CAEB18D00541D08 /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50BF01B413E8C009905B9 /* ImageFetcher.swift */; };
 		C482A0041CAEB18D00541D08 /* SingleImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40665431C73A47C00EB9751 /* SingleImageSaver.swift */; };
@@ -58,16 +57,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B0812E871EE986C00020315F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CameraView.strings; sourceTree = "<group>"; };
-		B0812E891EE986D00020315F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CameraView.strings; sourceTree = "<group>"; };
-		B0812E8A1EE986D70020315F /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/CameraView.strings; sourceTree = "<group>"; };
-		B0812E8B1EE986DC0020315F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/CameraView.strings; sourceTree = "<group>"; };
-		B0812E8C1EE986EF0020315F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CameraView.strings; sourceTree = "<group>"; };
+		B0812E8D1EE9947C0020315F /* ALCameraViewControllerStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ALCameraViewControllerStrings.bundle; sourceTree = "<group>"; };
+		B0812E921EE99F690020315F /* ConfirmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmViewController.xib; sourceTree = "<group>"; };
 		C40665431C73A47C00EB9751 /* SingleImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleImageSaver.swift; sourceTree = "<group>"; };
 		C40665451C73A94100EB9751 /* CameraGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraGlobals.swift; sourceTree = "<group>"; };
 		C40665471C73B72D00EB9751 /* SingleImageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleImageFetcher.swift; sourceTree = "<group>"; };
 		C44543201CA68DDE00644380 /* VolumeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeControl.swift; sourceTree = "<group>"; };
-		C4768BFF1CAF2EA100A084F8 /* ConfirmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmViewController.xib; sourceTree = "<group>"; };
 		C4829FFB1CAEB16C00541D08 /* CameraViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CameraViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4829FFD1CAEB16C00541D08 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		C4829FFF1CAEB16C00541D08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,7 +123,7 @@
 				FAB50BF91B413E8C009905B9 /* PhotoLibraryViewController.swift */,
 				FAF058651B316695008E5592 /* CameraViewController.swift */,
 				FA7E6B9A1B429012000E1B14 /* ConfirmViewController.swift */,
-				C4768BFF1CAF2EA100A084F8 /* ConfirmViewController.xib */,
+				B0812E921EE99F690020315F /* ConfirmViewController.xib */,
 				EBF7829B1CB2C04300DE3E63 /* CameraViewControllerConstraint.swift */,
 			);
 			path = ViewController;
@@ -187,8 +182,8 @@
 				FAB50C021B4140AB009905B9 /* Utilities */,
 				FAB50BEA1B413E41009905B9 /* ViewController */,
 				FAB50BEB1B413E4E009905B9 /* Views */,
-				B0812E881EE986C00020315F /* CameraView.strings */,
 				FA5FA3441B3AFEB300497C62 /* CameraViewAssets.xcassets */,
+				B0812E8D1EE9947C0020315F /* ALCameraViewControllerStrings.bundle */,
 			);
 			path = ALCameraViewController;
 			sourceTree = "<group>";
@@ -314,9 +309,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0812E861EE986C00020315F /* CameraView.strings in Resources */,
 				C482A0151CAEB1B100541D08 /* CameraViewAssets.xcassets in Resources */,
-				C4768C011CAF2EAA00A084F8 /* ConfirmViewController.xib in Resources */,
+				B0812E901EE9977E0020315F /* ALCameraViewControllerStrings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,11 +319,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA52EE0B1B44129B00E16B6F /* ViewController.xib in Resources */,
-				B0812E851EE986C00020315F /* CameraView.strings in Resources */,
+				B0812E911EE99D730020315F /* ALCameraViewControllerStrings.bundle in Resources */,
 				FA5FA3451B3AFEB300497C62 /* CameraViewAssets.xcassets in Resources */,
 				FAF0584C1B31618D008E5592 /* Images.xcassets in Resources */,
 				FA778A411B8319D8005807E7 /* image.jpg in Resources */,
-				C4768C001CAF2EA100A084F8 /* ConfirmViewController.xib in Resources */,
+				B0812E931EE99F690020315F /* ConfirmViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,21 +383,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B0812E881EE986C00020315F /* CameraView.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B0812E871EE986C00020315F /* en */,
-				B0812E891EE986D00020315F /* ru */,
-				B0812E8A1EE986D70020315F /* th */,
-				B0812E8B1EE986DC0020315F /* ja */,
-				B0812E8C1EE986EF0020315F /* ar */,
-			);
-			name = CameraView.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C482A0011CAEB16C00541D08 /* Debug */ = {

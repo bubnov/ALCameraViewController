@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.platform           = :ios, "8.0"
   spec.license            = "MIT"
   spec.source_files       = "ALCameraViewController/**/*.{swift}"
-  spec.resources          = ["ALCameraViewController/ViewController/ConfirmViewController.xib", "ALCameraViewController/CameraViewAssets.xcassets", "ALCameraViewController/en.lproj/CameraView.strings", "ALCameraViewController/ar.lproj/CameraView.strings", "ALCameraViewController/ru.lproj/CameraView.strings", "ALCameraViewController/ja.lproj/CameraView.strings", "ALCameraViewController/th.lproj/CameraView.strings"]
+  spec.resources          = ["ALCameraViewController/ViewController/ConfirmViewController.xib", "ALCameraViewController/CameraViewAssets.xcassets", "ALCameraViewController/ALCameraViewControllerStrings.bundle"]
   spec.homepage           = "https://github.com/AlexLittlejohn/ALCameraViewController"
   spec.author             = { "Alex Littlejohn" => "alexlittlejohn@me.com" }
 end
