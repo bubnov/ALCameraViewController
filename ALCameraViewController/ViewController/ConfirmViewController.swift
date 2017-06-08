@@ -60,6 +60,9 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         scrollView.maximumZoomScale = 1
         
+        cancelButton.setTitle(localizedString("Retake"), for: .normal)
+        confirmButton.setTitle(localizedString("Send"), for: .normal)
+        
         cropOverlay.isHidden = true
         
 //        guard let asset = asset else {
