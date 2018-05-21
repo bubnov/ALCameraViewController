@@ -45,6 +45,8 @@ public extension CameraViewController {
 
 open class CameraViewController: UIViewController {
     
+    var isVolumeControlEnabled: Bool = false
+    
     var didUpdateViews = false
     var allowCropping = false
     var animationRunning = false
@@ -271,7 +273,9 @@ open class CameraViewController: UIViewController {
         cameraView.startSession()
         addCameraObserver()
         addRotateObserver()
-        setupVolumeControl()
+        if isVolumeControlEnabled {
+            setupVolumeControl()
+        }
     }
     
     /**
