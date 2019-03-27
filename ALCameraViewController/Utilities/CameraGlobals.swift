@@ -35,7 +35,7 @@ public class CameraGlobals {
     
     public var stringsTable = NSLocale.current.languageCode
     public var photoLibraryThumbnailSize = CGSize(width: thumbnailDimension, height: thumbnailDimension)
-    public var defaultCameraPosition = AVCaptureDevicePosition.back
+    public var defaultCameraPosition = AVCaptureDevice.Position.back
 }
 
 func recursivePathsForResources(type: String, bundlePath: String) -> [NSURL] {

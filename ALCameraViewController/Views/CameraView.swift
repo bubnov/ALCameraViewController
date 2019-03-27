@@ -25,7 +25,7 @@ public class CameraView: UIView {
     
     public func startSession() {
         session = AVCaptureSession()
-        session.sessionPreset = AVCaptureSessionPresetPhoto
+        session.sessionPreset = AVCaptureSession.Preset.photo
 //        session.usesApplicationAudioSession = false
 //        session.automaticallyConfiguresApplicationAudioSession = false
         
@@ -103,7 +103,7 @@ public class CameraView: UIView {
         }
     }
     
-    internal func focus(gesture: UITapGestureRecognizer) {
+    @objc internal func focus(gesture: UITapGestureRecognizer) {
         let point = gesture.location(in: self)
         
         guard focusCamera(toPoint: point) else {
@@ -115,9 +115,9 @@ public class CameraView: UIView {
         focusView.alpha = 0
         focusView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         
-        bringSubview(toFront: focusView)
+        bringSubviewToFront(focusView)
         
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: UIViewKeyframeAnimationOptions(), animations: {
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: UIView.KeyframeAnimationOptions(), animations: {
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.15, animations: { [weak self] in
                 self?.focusView.alpha = 1
@@ -140,14 +140,14 @@ public class CameraView: UIView {
     private func createPreview() {
         
         preview = AVCaptureVideoPreviewLayer(session: session)
-        preview.videoGravity = AVLayerVideoGravityResizeAspectFill
+        preview.videoGravity = AVLayerVideoGravity.resizeAspectFill
         preview.frame = bounds
 
         layer.addSublayer(preview)
     }
     
-    private func cameraWithPosition(position: AVCaptureDevicePosition) -> AVCaptureDevice? {
-        guard let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as? [AVCaptureDevice] else {
+    private func cameraWithPosition(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+        guard let devices = AVCaptureDevice.devices(for: AVMediaType.video) as? [AVCaptureDevice] else {
             return nil
         }
         return devices.filter { $0.position == position }.first
@@ -183,7 +183,7 @@ public class CameraView: UIView {
             return false
         }
         
-        let focusPoint = preview.captureDevicePointOfInterest(for: toPoint)
+        let focusPoint = preview.captureDevicePointConverted(fromLayerPoint: toPoint)
 
         device.focusPointOfInterest = focusPoint
         device.focusMode = .continuousAutoFocus
@@ -223,11 +223,11 @@ public class CameraView: UIView {
         session.beginConfiguration()
         session.removeInput(currentInput)
         
-        if currentInput.device.position == AVCaptureDevicePosition.back {
-            currentPosition = AVCaptureDevicePosition.front
+        if currentInput.device.position == AVCaptureDevice.Position.back {
+            currentPosition = AVCaptureDevice.Position.front
             device = cameraWithPosition(position: currentPosition)
         } else {
-            currentPosition = AVCaptureDevicePosition.back
+            currentPosition = AVCaptureDevice.Position.back
             device = cameraWithPosition(position: currentPosition)
         }
         
@@ -248,16 +248,16 @@ public class CameraView: UIView {
         }
         switch UIApplication.shared.statusBarOrientation {
             case .portrait:
-              preview?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
+              preview?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
               break
             case .portraitUpsideDown:
-              preview?.connection.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
+              preview?.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
               break
             case .landscapeRight:
-              preview?.connection.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+              preview?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
               break
             case .landscapeLeft:
-              preview?.connection.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+              preview?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
               break
             default: break
         }
